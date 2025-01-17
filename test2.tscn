@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://deoqs0d2leobr"]
+[gd_scene load_steps=3 format=3 uid="uid://deoqs0d2leobr"]
 
 [ext_resource type="Texture2D" uid="uid://b8lmphn62rcku" path="res://bnf.png" id="1_yu02b"]
+[ext_resource type="PackedScene" uid="uid://cfcnxehqha383" path="res://level_1.tscn" id="2_v60ke"]
 
 [node name="Node" type="Node"]
 
@@ -12,3 +13,5 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_yu02b")
 expand_mode = 1
+
+[node name="Stage 1" parent="." instance=ExtResource("2_v60ke")]
