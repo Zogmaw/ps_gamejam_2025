@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cfcnxehqha383"]
+[gd_scene load_steps=5 format=3 uid="uid://cfcnxehqha383"]
 
 [ext_resource type="Script" path="res://scripts/node_2d.gd" id="1_51cwx"]
 [ext_resource type="PackedScene" uid="uid://5xtqymdpbp3o" path="res://obsticle.tscn" id="2_1swgp"]
 [ext_resource type="AudioStream" uid="uid://dvfunwt1mp08c" path="res://audio/break.mp3" id="3_55aa6"]
+[ext_resource type="PackedScene" uid="uid://cfx8uapxu85ej" path="res://ball.tscn" id="4_iq17r"]
 
 [node name="Stage 1" type="Node2D"]
 script = ExtResource("1_51cwx")
@@ -20,6 +21,9 @@ position = Vector2(419, 261)
 
 [node name="break" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_55aa6")
+
+[node name="Ball" parent="." instance=ExtResource("4_iq17r")]
+position = Vector2(414, -62)
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="object_destroyed" from="Obsticle" to="." method="_on_obsticle_object_destroyed"]
