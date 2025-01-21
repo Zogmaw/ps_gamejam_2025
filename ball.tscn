@@ -1,25 +1,19 @@
 [gd_scene load_steps=5 format=3 uid="uid://cfx8uapxu85ej"]
 
-[ext_resource type="Script" path="res://scripts/obsticle.gd" id="1_e830p"]
+[ext_resource type="Script" path="res://scripts/ball.gd" id="1_1s2wg"]
 [ext_resource type="Texture2D" uid="uid://bi1d0c5gihdxs" path="res://icon.svg" id="2_ot651"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_vu6xv"]
-radius = 41.6786
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fxdx5"]
 radius = 77.7817
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_vu6xv"]
+radius = 7.53806
+
 [node name="Ball" type="Node2D"]
-script = ExtResource("1_e830p")
+script = ExtResource("1_1s2wg")
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
-
-[node name="Area2D" type="Area2D" parent="RigidBody2D"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D/Area2D"]
-position = Vector2(525.025, 274.025)
-scale = Vector2(1.895, 1.895)
-shape = SubResource("CircleShape2D_vu6xv")
+can_sleep = false
 
 [node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
 position = Vector2(525, 274)
@@ -29,4 +23,10 @@ texture = ExtResource("2_ot651")
 position = Vector2(525, 273)
 shape = SubResource("CircleShape2D_fxdx5")
 
-[connection signal="mouse_entered" from="RigidBody2D/Area2D" to="." method="_on_area_2d_mouse_entered"]
+[node name="Area2D" type="Area2D" parent="RigidBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D/Area2D"]
+position = Vector2(525.025, 274.025)
+scale = Vector2(1.895, 1.895)
+shape = SubResource("CircleShape2D_vu6xv")
+debug_color = Color(0.942816, 0.207681, 0.313411, 0.42)
