@@ -1,6 +1,6 @@
 extends Node2D
 
-
+signal ballInGoal
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -13,8 +13,5 @@ func _process(delta: float) -> void:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	print(body.get_children())
-
-
-func _on_area_2d_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
-	print(body_rid)
+	if(body.name == "ballBody"):
+		ballInGoal.emit()

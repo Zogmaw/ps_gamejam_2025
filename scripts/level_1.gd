@@ -29,8 +29,7 @@ func _on_goal_ball_in_goal() -> void:
 	var bb: Node = $Ball.find_child("ballBody")
 	bb.gravity_scale = 0
 	bb.linear_velocity = Vector2(0,0)
-	#bb.freeze = true
-	
+	bb.angular_velocity = 0
 	$Ball.inGoal = true
 
 

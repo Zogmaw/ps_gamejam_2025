@@ -1,33 +1,27 @@
 [gd_scene load_steps=6 format=3 uid="uid://cfcnxehqha383"]
 
-[ext_resource type="Script" path="res://scripts/node_2d.gd" id="1_51cwx"]
+[ext_resource type="Script" path="res://scripts/level_1.gd" id="1_ywlhw"]
 [ext_resource type="PackedScene" uid="uid://5xtqymdpbp3o" path="res://obsticle.tscn" id="2_1swgp"]
 [ext_resource type="PackedScene" uid="uid://we7yb3g0j3wu" path="res://goal.tscn" id="2_4oiid"]
 [ext_resource type="AudioStream" uid="uid://dvfunwt1mp08c" path="res://audio/break.mp3" id="3_55aa6"]
 [ext_resource type="PackedScene" uid="uid://cfx8uapxu85ej" path="res://ball.tscn" id="4_iq17r"]
 
 [node name="Stage 1" type="Node2D"]
-script = ExtResource("1_51cwx")
+script = ExtResource("1_ywlhw")
 
 [node name="goal" parent="." instance=ExtResource("2_4oiid")]
-position = Vector2(420, 267)
-
-[node name="Button" type="Button" parent="."]
-offset_left = 925.0
-offset_top = 518.0
-offset_right = 964.0
-offset_bottom = 549.0
-disabled = true
-text = "quit"
+position = Vector2(945, 534)
 
 [node name="Obsticle" parent="." instance=ExtResource("2_1swgp")]
-position = Vector2(419, 260)
+position = Vector2(943, 380)
+scale = Vector2(2.67, 0.41)
 
 [node name="break" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_55aa6")
 
 [node name="Ball" parent="." instance=ExtResource("4_iq17r")]
-position = Vector2(414, -62)
+position = Vector2(945, 214)
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="ballInGoal" from="goal" to="." method="_on_goal_ball_in_goal"]
 [connection signal="object_destroyed" from="Obsticle" to="." method="_on_obsticle_object_destroyed"]
+[connection signal="goNext" from="Ball" to="." method="_on_ball_go_next"]

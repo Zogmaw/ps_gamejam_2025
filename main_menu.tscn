@@ -38,8 +38,7 @@ uppercase = true
 
 [node name="tag line" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "They've taken everything from you.
-It's time to get it back."
+text = "Tag line"
 horizontal_alignment = 1
 
 [node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]

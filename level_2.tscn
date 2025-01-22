@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://m35qdiv0y1jc"]
+
+[ext_resource type="Script" path="res://scripts/level_2.gd" id="1_cj03v"]
+[ext_resource type="PackedScene" uid="uid://we7yb3g0j3wu" path="res://goal.tscn" id="2_lbjqn"]
+[ext_resource type="PackedScene" uid="uid://5xtqymdpbp3o" path="res://obsticle.tscn" id="3_ergyr"]
+[ext_resource type="AudioStream" uid="uid://dvfunwt1mp08c" path="res://audio/break.mp3" id="4_uge1h"]
+[ext_resource type="PackedScene" uid="uid://cfx8uapxu85ej" path="res://ball.tscn" id="5_fpyx3"]
+
+[node name="Stage 2" type="Node2D"]
+script = ExtResource("1_cj03v")
+
+[node name="goal" parent="." instance=ExtResource("2_lbjqn")]
+position = Vector2(945, 534)
+
+[node name="Obsticle" parent="." instance=ExtResource("3_ergyr")]
+position = Vector2(685, 445)
+rotation = 0.383972
+scale = Vector2(2.67, 0.41)
+
+[node name="break" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_uge1h")
+
+[node name="Ball" parent="." instance=ExtResource("5_fpyx3")]
+position = Vector2(578, 233)
+
+[connection signal="ballInGoal" from="goal" to="." method="_on_goal_ball_in_goal"]
+[connection signal="object_destroyed" from="Obsticle" to="." method="_on_obsticle_object_destroyed"]
+[connection signal="goNext" from="Ball" to="." method="_on_ball_go_next"]
