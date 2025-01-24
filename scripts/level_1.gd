@@ -1,15 +1,12 @@
 extends Node2D
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$Ball.goalPOS = $goal.position
-	$Ball.goalPOS.y = $Ball.goalPOS.y - 220
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if($Ball.position == $goal.position):
-		$Ball.freeze = true
+	pass
 	
 func _input(event: InputEvent) -> void:
 	#Reload the level if 'R' is pressed
@@ -26,13 +23,10 @@ func _on_obsticle_object_destroyed() -> void:
 
 
 func _on_goal_ball_in_goal() -> void:
-	var bb: Node = $Ball.find_child("ballBody")
-	bb.gravity_scale = 0
-	bb.linear_velocity = Vector2(0,0)
-	bb.angular_velocity = 0
-	$Ball.inGoal = true
+	$Ball.queue_free()
+	$goal.queue_free()
+	$ballInGoal.visible = true
+	
 
-
-
-func _on_ball_go_next() -> void:
+func _on_ball_in_goal_go_next() -> void:
 	get_tree().change_scene_to_file("res://level_2.tscn")

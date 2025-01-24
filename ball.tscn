@@ -1,6 +1,5 @@
-[gd_scene load_steps=5 format=3 uid="uid://cfx8uapxu85ej"]
+[gd_scene load_steps=4 format=3 uid="uid://cfx8uapxu85ej"]
 
-[ext_resource type="Script" path="res://scripts/ball.gd" id="1_1s2wg"]
 [ext_resource type="Texture2D" uid="uid://bp1hsaum3gf04" path="res://'art'/ball.png" id="2_fc452"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fxdx5"]
@@ -10,7 +9,6 @@ radius = 45.0999
 radius = 22.7464
 
 [node name="Ball" type="Node2D"]
-script = ExtResource("1_1s2wg")
 
 [node name="ballBody" type="RigidBody2D" parent="."]
 can_sleep = false
