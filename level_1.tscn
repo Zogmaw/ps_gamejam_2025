@@ -1,32 +1,33 @@
 [gd_scene load_steps=7 format=3 uid="uid://cfcnxehqha383"]
 
 [ext_resource type="Script" path="res://scripts/level_1.gd" id="1_ywlhw"]
-[ext_resource type="PackedScene" uid="uid://5xtqymdpbp3o" path="res://obsticle.tscn" id="2_1swgp"]
-[ext_resource type="PackedScene" uid="uid://we7yb3g0j3wu" path="res://goal.tscn" id="2_4oiid"]
+[ext_resource type="PackedScene" uid="uid://5xtqymdpbp3o" path="res://objects/obsticle.tscn" id="2_1swgp"]
+[ext_resource type="PackedScene" uid="uid://we7yb3g0j3wu" path="res://objects/goal.tscn" id="2_4oiid"]
 [ext_resource type="AudioStream" uid="uid://dvfunwt1mp08c" path="res://audio/break.mp3" id="3_55aa6"]
-[ext_resource type="PackedScene" uid="uid://cfx8uapxu85ej" path="res://ball.tscn" id="4_iq17r"]
-[ext_resource type="PackedScene" uid="uid://c64vthk38uwv" path="res://ballInGoal.tscn" id="6_jovhg"]
+[ext_resource type="PackedScene" uid="uid://cfx8uapxu85ej" path="res://objects/ball.tscn" id="4_iq17r"]
+[ext_resource type="PackedScene" uid="uid://c64vthk38uwv" path="res://objects/ballInGoal.tscn" id="6_jovhg"]
 
 [node name="Stage 1" type="Node2D"]
 script = ExtResource("1_ywlhw")
 
 [node name="goal" parent="." instance=ExtResource("2_4oiid")]
-position = Vector2(945, 534)
+position = Vector2(562, 368)
 
 [node name="Obsticle" parent="." instance=ExtResource("2_1swgp")]
-position = Vector2(943, 380)
-scale = Vector2(2.67, 0.41)
+position = Vector2(560, 214)
+scale = Vector2(6.99, 0.41)
 
 [node name="break" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_55aa6")
 
 [node name="Ball" parent="." instance=ExtResource("4_iq17r")]
-position = Vector2(945, 214)
+position = Vector2(562, 48)
 
 [node name="ballInGoal" parent="." instance=ExtResource("6_jovhg")]
 visible = false
-position = Vector2(945, 534)
+position = Vector2(562, 368)
 
 [connection signal="ballInGoal" from="goal" to="." method="_on_goal_ball_in_goal"]
 [connection signal="object_destroyed" from="Obsticle" to="." method="_on_obsticle_object_destroyed"]
+[connection signal="ball_destroyed" from="Ball" to="." method="_on_ball_ball_destroyed"]
 [connection signal="goNext" from="ballInGoal" to="." method="_on_ball_in_goal_go_next"]

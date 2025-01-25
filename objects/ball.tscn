@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://cfx8uapxu85ej"]
+
+[ext_resource type="Script" path="res://scripts/ball.gd" id="2_d5mky"]
+[ext_resource type="Texture2D" uid="uid://bp1hsaum3gf04" path="res://'art'/ball.png" id="2_fc452"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fxdx5"]
+radius = 45.0999
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vu6xv"]
+radius = 23.225
+
+[node name="ballBody" type="RigidBody2D"]
+can_sleep = false
+script = ExtResource("2_d5mky")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_fc452")
+offset = Vector2(3.46, 2.3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_fxdx5")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(1.895, 1.895)
+shape = SubResource("CircleShape2D_vu6xv")
+debug_color = Color(0.942816, 0.207681, 0.313411, 0.42)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]

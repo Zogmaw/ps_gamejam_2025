@@ -1,7 +1,7 @@
 extends RigidBody2D
 
-signal ball_destroyed
-
+signal rope_destroyed
+# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	for child in self.get_children():
 		if not child.has_meta("original_scale"):
@@ -14,9 +14,15 @@ func _ready() -> void:
 		child.set_position(original_pos * scale)
 		child.set_scale(original_scale * scale)
 
-func _on_area_2d_mouse_entered() -> void:
-	ball_destroyed.emit()
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+func _on_area_2d_2_mouse_entered() -> void:
+	rope_destroyed.emit()
 	queue_free()
+
 
 func _on_body_entered(body: Node) -> void:
 	if(body.name.containsn("spike")):

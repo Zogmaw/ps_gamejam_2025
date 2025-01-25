@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://fiyxpou12mdw"]
+
+[ext_resource type="Script" path="res://scripts/rope.gd" id="1_0pmhw"]
+[ext_resource type="Texture2D" uid="uid://d2wg7pq0ua4th" path="res://'art'/rope.png" id="1_5t8ni"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_4nsxc"]
+a = Vector2(185, 0)
+b = Vector2(0, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3m65y"]
+size = Vector2(190, 6)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_56yjk"]
+radius = 3.16228
+
+[node name="Rope" type="RigidBody2D"]
+center_of_mass_mode = 1
+center_of_mass = Vector2(190, 0)
+script = ExtResource("1_0pmhw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("SegmentShape2D_4nsxc")
+
+[node name="Area2D2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(95, 0)
+shape = SubResource("RectangleShape2D_3m65y")
+debug_color = Color(0.942816, 0.207681, 0.313411, 0.42)
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D2"]
+position = Vector2(90, 4)
+scale = Vector2(0.547264, 1)
+texture = ExtResource("1_5t8ni")
+
+[node name="Pin" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pin"]
+shape = SubResource("CircleShape2D_56yjk")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+node_a = NodePath("..")
+node_b = NodePath("../Pin")
+
+[connection signal="mouse_entered" from="Area2D2" to="." method="_on_area_2d_2_mouse_entered"]

@@ -1,0 +1,90 @@
+[gd_scene load_steps=9 format=3 uid="uid://8j4bjqwwnlc6"]
+
+[ext_resource type="Script" path="res://scripts/how_to_play.gd" id="1_28w8r"]
+[ext_resource type="Texture2D" uid="uid://bxc8ea8djy3jm" path="res://'art'/ballInGoalbgless.png" id="2_2qlth"]
+[ext_resource type="PackedScene" uid="uid://5xtqymdpbp3o" path="res://objects/obsticle.tscn" id="3_5f5nk"]
+[ext_resource type="AudioStream" uid="uid://dvfunwt1mp08c" path="res://audio/break.mp3" id="4_1csfi"]
+[ext_resource type="PackedScene" uid="uid://fiyxpou12mdw" path="res://objects/rope.tscn" id="5_m8ngl"]
+[ext_resource type="AudioStream" uid="uid://b32vxgkjwcky6" path="res://audio/snip.mp3" id="6_davkp"]
+[ext_resource type="PackedScene" uid="uid://cfx8uapxu85ej" path="res://objects/ball.tscn" id="6_duees"]
+[ext_resource type="PackedScene" uid="uid://bkdvtcxrxufkh" path="res://objects/wall.tscn" id="8_172tv"]
+
+[node name="howToPlay" type="Node2D"]
+script = ExtResource("1_28w8r")
+
+[node name="Obsticle" parent="." instance=ExtResource("3_5f5nk")]
+position = Vector2(563, 583)
+
+[node name="HowToPlay" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 526.0
+offset_right = 526.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="HowToPlay"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -757.99
+offset_top = 79.535
+offset_right = 842.01
+offset_bottom = 369.535
+grow_horizontal = 2
+theme_override_constants/margin_left = 300
+theme_override_constants/margin_right = 300
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HowToPlay/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Title" type="Label" parent="HowToPlay/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "You LOVE pushing buttons!
+"
+horizontal_alignment = 1
+
+[node name="paragraph" type="Label" parent="HowToPlay/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+text = "Unfortunately, like King Midas, you've been cursed.  Rather than turning everything you touch into gold though, everything breaks. With the exception of objects made of diamond of course. You are the weapon.  Lucky for you, scientist have discovered a new material you can't break - golden hexagons.  Be careful of spikes though, they can still break golden hexagons!  If you can place a button in a golden hexagon, it will become indestructable and you'll be able to press it once again.  People are counting on you.  Well, you're counting on yourself.  Good luck out there champ.  Now go forth and push some buttons.  And if you mess up, just push 'R' to reset."
+autowrap_mode = 2
+
+[node name="Back" type="Button" parent="HowToPlay/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Back"
+icon = ExtResource("2_2qlth")
+flat = true
+icon_alignment = 1
+
+[node name="break" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_1csfi")
+
+[node name="snip" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_davkp")
+
+[node name="ballBody" parent="." instance=ExtResource("6_duees")]
+position = Vector2(677, 429)
+
+[node name="Rope" parent="." instance=ExtResource("5_m8ngl")]
+position = Vector2(488, 429)
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+position = Vector2(677, 429)
+node_a = NodePath("../ballBody")
+node_b = NodePath("../Rope")
+
+[node name="Wall" parent="." instance=ExtResource("8_172tv")]
+position = Vector2(837, 541)
+
+[connection signal="object_destroyed" from="Obsticle" to="." method="_on_obsticle_object_destroyed"]
+[connection signal="pressed" from="HowToPlay/MarginContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="ball_destroyed" from="ballBody" to="." method="_on_ball_body_ball_destroyed"]
+[connection signal="rope_destroyed" from="Rope" to="." method="_on_rope_rope_destroyed"]

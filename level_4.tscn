@@ -1,0 +1,96 @@
+[gd_scene load_steps=10 format=3 uid="uid://du6vldbmi5wg4"]
+
+[ext_resource type="Script" path="res://scripts/level_4.gd" id="1_su0wu"]
+[ext_resource type="PackedScene" uid="uid://bkdvtcxrxufkh" path="res://objects/wall.tscn" id="2_c68un"]
+[ext_resource type="PackedScene" uid="uid://we7yb3g0j3wu" path="res://objects/goal.tscn" id="2_unqdf"]
+[ext_resource type="PackedScene" uid="uid://5xtqymdpbp3o" path="res://objects/obsticle.tscn" id="3_icowd"]
+[ext_resource type="AudioStream" uid="uid://dvfunwt1mp08c" path="res://audio/break.mp3" id="4_38s2y"]
+[ext_resource type="PackedScene" uid="uid://cfx8uapxu85ej" path="res://objects/ball.tscn" id="5_7gpcv"]
+[ext_resource type="PackedScene" uid="uid://c64vthk38uwv" path="res://objects/ballInGoal.tscn" id="6_kr5fw"]
+[ext_resource type="AudioStream" uid="uid://b32vxgkjwcky6" path="res://audio/snip.mp3" id="7_3ic3g"]
+[ext_resource type="PackedScene" uid="uid://fiyxpou12mdw" path="res://objects/rope.tscn" id="8_2dktn"]
+
+[node name="Stage 4" type="Node2D"]
+script = ExtResource("1_su0wu")
+
+[node name="Wall" parent="." instance=ExtResource("2_c68un")]
+position = Vector2(495, 464)
+rotation = 0.0060171
+
+[node name="goal" parent="." instance=ExtResource("2_unqdf")]
+position = Vector2(585, 569)
+
+[node name="Obsticle" parent="." instance=ExtResource("3_icowd")]
+position = Vector2(838, 566)
+rotation = 2.78765
+scale = Vector2(2.67, 0.41)
+
+[node name="Obsticle2" parent="." instance=ExtResource("3_icowd")]
+position = Vector2(822, 515)
+rotation = 2.78765
+scale = Vector2(2.67, 0.41)
+
+[node name="Obsticle5" parent="." instance=ExtResource("3_icowd")]
+position = Vector2(267, 555)
+rotation = 0.518954
+scale = Vector2(2.67, 0.41)
+
+[node name="Obsticle6" parent="." instance=ExtResource("3_icowd")]
+position = Vector2(293, 508)
+rotation = 0.518954
+scale = Vector2(2.67, 0.41)
+
+[node name="Obsticle3" parent="." instance=ExtResource("3_icowd")]
+position = Vector2(206, 306)
+rotation = -0.528325
+scale = Vector2(2.67, 0.41)
+
+[node name="Obsticle4" parent="." instance=ExtResource("3_icowd")]
+position = Vector2(493, 463)
+rotation = 0.00385886
+scale = Vector2(2.67, 0.489229)
+
+[node name="break" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_38s2y")
+
+[node name="Ball" parent="." instance=ExtResource("5_7gpcv")]
+position = Vector2(188, 218)
+
+[node name="ballInGoal" parent="." instance=ExtResource("6_kr5fw")]
+visible = false
+position = Vector2(585, 569)
+
+[node name="snip" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_3ic3g")
+
+[node name="Rope" parent="." instance=ExtResource("8_2dktn")]
+position = Vector2(2.00006, 3.00004)
+rotation = 0.860271
+scale = Vector2(1.495, 1)
+
+[node name="Rope2" parent="." instance=ExtResource("8_2dktn")]
+position = Vector2(365, -1.00002)
+rotation = 2.24702
+scale = Vector2(1.495, 1)
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+position = Vector2(188, 218)
+node_a = NodePath("../Ball")
+node_b = NodePath("../Rope")
+
+[node name="PinJoint2D2" type="PinJoint2D" parent="."]
+position = Vector2(188, 218)
+node_a = NodePath("../Ball")
+node_b = NodePath("../Rope2")
+
+[connection signal="ballInGoal" from="goal" to="." method="_on_goal_ball_in_goal"]
+[connection signal="object_destroyed" from="Obsticle" to="." method="_on_obsticle_object_destroyed"]
+[connection signal="object_destroyed" from="Obsticle2" to="." method="_on_obsticle_object_destroyed"]
+[connection signal="object_destroyed" from="Obsticle5" to="." method="_on_obsticle_object_destroyed"]
+[connection signal="object_destroyed" from="Obsticle6" to="." method="_on_obsticle_object_destroyed"]
+[connection signal="object_destroyed" from="Obsticle3" to="." method="_on_obsticle_object_destroyed"]
+[connection signal="object_destroyed" from="Obsticle4" to="." method="_on_obsticle_object_destroyed"]
+[connection signal="ball_destroyed" from="Ball" to="." method="_on_ball_ball_destroyed"]
+[connection signal="goNext" from="ballInGoal" to="." method="_on_ball_in_goal_go_next"]
+[connection signal="rope_destroyed" from="Rope" to="." method="_on_rope_rope_destroyed"]
+[connection signal="rope_destroyed" from="Rope2" to="." method="_on_rope_rope_destroyed"]

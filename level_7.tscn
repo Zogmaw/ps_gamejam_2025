@@ -1,0 +1,76 @@
+[gd_scene load_steps=10 format=3 uid="uid://dylba7in3hacp"]
+
+[ext_resource type="Script" path="res://scripts/level_7.gd" id="1_juy3m"]
+[ext_resource type="PackedScene" uid="uid://we7yb3g0j3wu" path="res://objects/goal.tscn" id="1_k41cp"]
+[ext_resource type="PackedScene" uid="uid://cfx8uapxu85ej" path="res://objects/ball.tscn" id="2_hs5rl"]
+[ext_resource type="PackedScene" uid="uid://bkdvtcxrxufkh" path="res://objects/wall.tscn" id="3_uwjxq"]
+[ext_resource type="PackedScene" uid="uid://cbtuf0ekla3ia" path="res://objects/fruit.tscn" id="4_av1uo"]
+[ext_resource type="AudioStream" uid="uid://d02wrewpr64e6" path="res://audio/slice.mp3" id="6_8sqhg"]
+[ext_resource type="AudioStream" uid="uid://dvfunwt1mp08c" path="res://audio/break.mp3" id="6_g81q2"]
+[ext_resource type="PackedScene" uid="uid://c64vthk38uwv" path="res://objects/ballInGoal.tscn" id="7_0oyxb"]
+
+[sub_resource type="Curve2D" id="Curve2D_tvm4k"]
+_data = {
+"points": PackedVector2Array(-60.3894, -1.05946, 60.3894, 1.05946, 0, 0, 0, 0, 0, 0, 1152, 0, 0, 0, 0, 0, 1152, 648, 0, 0, 0, 0, 0, 648, 0, 0, 0, 0, 0, 0)
+}
+point_count = 5
+
+[node name="Stage_7" type="Node2D"]
+script = ExtResource("1_juy3m")
+fruit = ExtResource("4_av1uo")
+
+[node name="goal" parent="." instance=ExtResource("1_k41cp")]
+position = Vector2(581, 309)
+
+[node name="Ball" parent="." instance=ExtResource("2_hs5rl")]
+position = Vector2(576, 896)
+collision_mask = 2
+
+[node name="Wall" parent="." instance=ExtResource("3_uwjxq")]
+position = Vector2(528, 947)
+rotation = 0.752137
+scale = Vector2(0.32, 0.452218)
+collision_layer = 2
+collision_mask = 2
+
+[node name="Wall2" parent="." instance=ExtResource("3_uwjxq")]
+position = Vector2(628, 950)
+rotation = 2.48313
+scale = Vector2(0.32, 0.452218)
+collision_layer = 2
+collision_mask = 2
+
+[node name="slice" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_8sqhg")
+
+[node name="break" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_g81q2")
+
+[node name="ballInGoal" parent="." instance=ExtResource("7_0oyxb")]
+visible = false
+position = Vector2(581, 309)
+
+[node name="melonPath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_tvm4k")
+
+[node name="melonSpawnLocation" type="PathFollow2D" parent="melonPath"]
+rotation = 0.0175421
+
+[node name="melonTimer" type="Timer" parent="."]
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 464.0
+offset_top = 40.0
+offset_right = 683.0
+offset_bottom = 63.0
+grow_horizontal = 2
+text = "Break  X more watermelons!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="ballInGoal" from="goal" to="." method="_on_goal_ball_in_goal"]
+[connection signal="ball_destroyed" from="Ball" to="." method="_on_ball_ball_destroyed"]
+[connection signal="goNext" from="ballInGoal" to="." method="_on_ball_in_goal_go_next"]
+[connection signal="timeout" from="melonTimer" to="." method="_on_melon_timer_timeout"]

@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://cbtuf0ekla3ia"]
+
+[ext_resource type="Script" path="res://scripts/fruit.gd" id="1_b1xfn"]
+[ext_resource type="Texture2D" uid="uid://mkknfiivs5tm" path="res://'art'/watermelon.png" id="2_gqmnc"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1nc6t"]
+radius = 36.0
+height = 142.0
+
+[node name="fruitBody" type="RigidBody2D"]
+can_sleep = false
+script = ExtResource("1_b1xfn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+scale = Vector2(0.824087, 0.806504)
+texture = ExtResource("2_gqmnc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_1nc6t")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_1nc6t")
+debug_color = Color(0.88331, 0.309759, 0.33669, 0.42)
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]

@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dcka0k6fa74w7"]
+[gd_scene load_steps=3 format=3 uid="uid://dcka0k6fa74w7"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_jioek"]
+[ext_resource type="Texture2D" uid="uid://bxc8ea8djy3jm" path="res://'art'/ballInGoalbgless.png" id="2_alqp5"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -41,18 +42,32 @@ layout_mode = 2
 text = "Tag line"
 horizontal_alignment = 1
 
-[node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Play" type="Button" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 text = "Play"
+icon = ExtResource("2_alqp5")
+flat = true
+icon_alignment = 1
 
-[node name="Options" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="howToPlay" type="Button" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
-text = "Options"
+text = "How To 
+Play"
+icon = ExtResource("2_alqp5")
+flat = true
+icon_alignment = 1
 
-[node name="Exit" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Exit" type="Button" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 text = "Quit"
+icon = ExtResource("2_alqp5")
+flat = true
+icon_alignment = 1
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/howToPlay" to="." method="_on_how_to_play_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Exit" to="." method="_on_exit_pressed"]

@@ -11,5 +11,7 @@ func _process(delta: float) -> void:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if(body.name == "ballBody"):
+	if(body.name == "Ball"):
 		ballInGoal.emit()
+	if(body.name =="spike"):
+		queue_free()
