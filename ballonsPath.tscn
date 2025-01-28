@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://culo4bx5qjmk3"]
+
+[ext_resource type="PackedScene" uid="uid://b1hya8pqc8xu8" path="res://objects/spike.tscn" id="1_8d84u"]
+
+[node name="PathFollow2D" type="PathFollow2D"]
+position = Vector2(1152, 576)
+rotation = -3.13424
+loop = false
+
+[node name="spike" parent="." instance=ExtResource("1_8d84u")]
+position = Vector2(-3.05176e-05, 2.28882e-05)
+rotation = -1.5708
+scale = Vector2(1, 1)
+gravity_scale = 0.0

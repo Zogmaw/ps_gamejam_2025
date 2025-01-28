@@ -20,4 +20,5 @@ func _on_area_2d_mouse_entered() -> void:
 
 func _on_body_entered(body: Node) -> void:
 	if(body.name.containsn("spike")):
+		ball_destroyed.emit()
 		queue_free()

@@ -1,0 +1,105 @@
+[gd_scene load_steps=10 format=3 uid="uid://dydhdrddapvey"]
+
+[ext_resource type="Script" path="res://scripts/level_8.gd" id="1_3deuf"]
+[ext_resource type="PackedScene" uid="uid://bkdvtcxrxufkh" path="res://objects/wall.tscn" id="2_tnxsy"]
+[ext_resource type="PackedScene" uid="uid://we7yb3g0j3wu" path="res://objects/goal.tscn" id="3_w1hoc"]
+[ext_resource type="AudioStream" uid="uid://dvfunwt1mp08c" path="res://audio/break.mp3" id="4_fdugu"]
+[ext_resource type="PackedScene" uid="uid://cfx8uapxu85ej" path="res://objects/ball.tscn" id="5_kvxva"]
+[ext_resource type="PackedScene" uid="uid://c64vthk38uwv" path="res://objects/ballInGoal.tscn" id="6_epk0g"]
+[ext_resource type="AudioStream" uid="uid://b32vxgkjwcky6" path="res://audio/snip.mp3" id="7_0plyx"]
+[ext_resource type="PackedScene" uid="uid://b1hya8pqc8xu8" path="res://objects/spike.tscn" id="9_8nscl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wsokl"]
+size = Vector2(2486, 1999)
+
+[node name="Stage 8" type="Node2D"]
+script = ExtResource("1_3deuf")
+
+[node name="Area2D" type="Area2D" parent="."]
+gravity_space_override = 3
+gravity_point_center = Vector2(0, -1)
+gravity_direction = Vector2(0, -1)
+gravity = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(597, 996.5)
+shape = SubResource("RectangleShape2D_wsokl")
+
+[node name="goal" parent="." instance=ExtResource("3_w1hoc")]
+position = Vector2(578, 0)
+
+[node name="break" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_fdugu")
+
+[node name="Ball" parent="." instance=ExtResource("5_kvxva")]
+position = Vector2(578, 1024)
+gravity_scale = 0.0
+
+[node name="Camera2D" type="Camera2D" parent="Ball"]
+offset = Vector2(0, -200)
+
+[node name="Label" type="Label" parent="Ball"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -81.0
+offset_top = 96.0
+offset_right = 82.0
+offset_bottom = 120.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Press SPACE to jump!"
+
+[node name="ballInGoal" parent="." instance=ExtResource("6_epk0g")]
+visible = false
+position = Vector2(578, 0)
+
+[node name="Camera2D" type="Camera2D" parent="ballInGoal"]
+offset = Vector2(0, -200)
+
+[node name="snip" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_0plyx")
+
+[node name="spike" parent="." instance=ExtResource("9_8nscl")]
+position = Vector2(1088, 896)
+rotation = 1.5708
+scale = Vector2(0.97, 1)
+gravity_scale = 0.0
+
+[node name="spike2" parent="." instance=ExtResource("9_8nscl")]
+position = Vector2(1088, 512)
+rotation = 1.5708
+gravity_scale = 0.0
+
+[node name="spike3" parent="." instance=ExtResource("9_8nscl")]
+position = Vector2(1088, 768)
+rotation = 1.5708
+gravity_scale = 0.0
+
+[node name="spike4" parent="." instance=ExtResource("9_8nscl")]
+position = Vector2(1088, 640)
+rotation = 1.5708
+gravity_scale = 0.0
+
+[node name="spike5" parent="." instance=ExtResource("9_8nscl")]
+position = Vector2(1088, 384)
+rotation = 1.5708
+gravity_scale = 0.0
+
+[node name="spike6" parent="." instance=ExtResource("9_8nscl")]
+position = Vector2(1088, 258)
+rotation = 1.5708
+gravity_scale = 0.0
+
+[node name="spike7" parent="." instance=ExtResource("9_8nscl")]
+position = Vector2(1088, 128)
+rotation = 1.5708
+gravity_scale = 0.0
+
+[node name="Wall" parent="." instance=ExtResource("2_tnxsy")]
+position = Vector2(156, 1010)
+
+[connection signal="ballInGoal" from="goal" to="." method="_on_goal_ball_in_goal"]
+[connection signal="ball_destroyed" from="Ball" to="." method="_on_ball_ball_destroyed"]
+[connection signal="goNext" from="ballInGoal" to="." method="_on_ball_in_goal_go_next"]

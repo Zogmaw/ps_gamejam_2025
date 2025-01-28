@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmv6ibh6lygdy"]
+
+[ext_resource type="Script" path="res://scripts/ball_in_goal.gd" id="1_ai7rm"]
+[ext_resource type="Texture2D" uid="uid://diqvcgmc5ox73" path="res://'art'/nuke.png" id="2_jiomo"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vu6xv"]
+radius = 22.7464
+
+[node name="ballInGoal" type="Node2D"]
+script = ExtResource("1_ai7rm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_jiomo")
+offset = Vector2(-1.97, -0.58)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(1.895, 1.895)
+shape = SubResource("CircleShape2D_vu6xv")
+debug_color = Color(0.942816, 0.207681, 0.313411, 0.42)
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://qghn8drxnvpn"]
+
+[ext_resource type="Script" path="res://scripts/level_10.gd" id="1_mr3xm"]
+[ext_resource type="Texture2D" uid="uid://br5mm1wsgiwjm" path="res://'art'/defaultbg.png" id="2_on51t"]
+[ext_resource type="PackedScene" uid="uid://dmv6ibh6lygdy" path="res://objects/nuke.tscn" id="5_1lwfh"]
+[ext_resource type="PackedScene" uid="uid://b8eldkcbatmsd" path="res://objects/glass.tscn" id="5_ovn1k"]
+
+[node name="Stage 10" type="Node2D"]
+script = ExtResource("1_mr3xm")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_on51t")
+
+[node name="nukeButton" parent="." instance=ExtResource("5_1lwfh")]
+position = Vector2(576, 315)
+
+[node name="glass" parent="." instance=ExtResource("5_ovn1k")]
+position = Vector2(576, 315)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 520.0
+offset_top = 441.0
+offset_right = 634.0
+offset_bottom = 464.0
+text = "DO NOT PRESS"
+
+[node name="shatter" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="goNext" from="nukeButton" to="." method="_on_nuke_button_go_next"]
+[connection signal="glass_destroyed" from="glass" to="." method="_on_glass_glass_destroyed"]

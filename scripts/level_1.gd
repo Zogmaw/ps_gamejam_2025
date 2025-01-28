@@ -2,7 +2,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	get_viewport().warp_mouse(Vector2(526,324))
 
 func _input(event: InputEvent) -> void:
 	#Reload the level if 'R' is pressed

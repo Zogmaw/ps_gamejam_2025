@@ -1,0 +1,95 @@
+[gd_scene load_steps=12 format=3 uid="uid://buxrbgxr308w4"]
+
+[ext_resource type="Script" path="res://scripts/level_9.gd" id="1_mmvuu"]
+[ext_resource type="PackedScene" uid="uid://gsagiujeajnb" path="res://ballonsButtPath.tscn" id="3_23wij"]
+[ext_resource type="PackedScene" uid="uid://we7yb3g0j3wu" path="res://objects/goal.tscn" id="3_cewoj"]
+[ext_resource type="Texture2D" uid="uid://c04cp7agvrhwt" path="res://'art'/balloonsField.png" id="4_jbhoe"]
+[ext_resource type="AudioStream" uid="uid://dvfunwt1mp08c" path="res://audio/break.mp3" id="4_uansb"]
+[ext_resource type="PackedScene" uid="uid://c64vthk38uwv" path="res://objects/ballInGoal.tscn" id="6_b8ayh"]
+[ext_resource type="AudioStream" uid="uid://b32vxgkjwcky6" path="res://audio/snip.mp3" id="7_77bel"]
+[ext_resource type="PackedScene" uid="uid://culo4bx5qjmk3" path="res://ballonsPath.tscn" id="7_td7p5"]
+[ext_resource type="PackedScene" uid="uid://5xtqymdpbp3o" path="res://objects/obsticle.tscn" id="8_wiqt7"]
+[ext_resource type="PackedScene" uid="uid://b1hya8pqc8xu8" path="res://objects/spike.tscn" id="9_3yoty"]
+
+[sub_resource type="Curve2D" id="Curve2D_f620t"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1152, 576, 0, 0, 0, 0, 64, 568, 0, 0, 0, 0, 64, 448, 0, 0, 0, 0, 1096, 448, 0, 0, 0, 0, 1096, 320, 0, 0, 0, 0, 64, 320, 0, 0, 0, 0, 64, 192, 0, 0, 0, 0, 1088, 192, 0, 0, 0, 0, 1088, 64, 0, 0, 0, 0, 64, 64)
+}
+point_count = 10
+
+[node name="Stage 9" type="Node2D"]
+script = ExtResource("1_mmvuu")
+baloon_sceen = ExtResource("7_td7p5")
+baloon_buttsceen = ExtResource("3_23wij")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("4_jbhoe")
+
+[node name="goal" parent="." instance=ExtResource("3_cewoj")]
+position = Vector2(64, 125)
+
+[node name="break" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_uansb")
+
+[node name="ballInGoal" parent="." instance=ExtResource("6_b8ayh")]
+visible = false
+position = Vector2(64, 125)
+
+[node name="snip" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_77bel")
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(3, 58)
+curve = SubResource("Curve2D_f620t")
+
+[node name="PathFollow2D" parent="Path2D" instance=ExtResource("7_td7p5")]
+
+[node name="Obsticle" parent="." instance=ExtResource("8_wiqt7")]
+position = Vector2(248, 55)
+scale = Vector2(1, 0.25)
+
+[node name="Obsticle2" parent="." instance=ExtResource("8_wiqt7")]
+position = Vector2(448, 55)
+scale = Vector2(1, 0.25)
+
+[node name="Obsticle3" parent="." instance=ExtResource("8_wiqt7")]
+position = Vector2(640, 55)
+scale = Vector2(1, 0.25)
+
+[node name="Obsticle4" parent="." instance=ExtResource("8_wiqt7")]
+position = Vector2(832, 55)
+scale = Vector2(1, 0.25)
+
+[node name="Obsticle5" parent="." instance=ExtResource("8_wiqt7")]
+position = Vector2(1024, 55)
+scale = Vector2(1, 0.25)
+
+[node name="spike" parent="." instance=ExtResource("9_3yoty")]
+position = Vector2(248, -32)
+rotation = 3.14159
+
+[node name="spike2" parent="." instance=ExtResource("9_3yoty")]
+position = Vector2(448, -32)
+rotation = 3.14159
+
+[node name="spike3" parent="." instance=ExtResource("9_3yoty")]
+position = Vector2(640, -32)
+rotation = 3.14159
+
+[node name="spike4" parent="." instance=ExtResource("9_3yoty")]
+position = Vector2(832, -32)
+rotation = 3.14159
+
+[node name="spike5" parent="." instance=ExtResource("9_3yoty")]
+position = Vector2(1024, -40)
+rotation = 3.14159
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[connection signal="ballInGoal" from="goal" to="." method="_on_goal_ball_in_goal"]
+[connection signal="goNext" from="ballInGoal" to="." method="_on_ball_in_goal_go_next"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

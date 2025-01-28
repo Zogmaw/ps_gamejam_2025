@@ -1,14 +1,20 @@
-[gd_scene load_steps=7 format=3 uid="uid://cfcnxehqha383"]
+[gd_scene load_steps=8 format=3 uid="uid://cfcnxehqha383"]
 
 [ext_resource type="Script" path="res://scripts/level_1.gd" id="1_ywlhw"]
 [ext_resource type="PackedScene" uid="uid://5xtqymdpbp3o" path="res://objects/obsticle.tscn" id="2_1swgp"]
 [ext_resource type="PackedScene" uid="uid://we7yb3g0j3wu" path="res://objects/goal.tscn" id="2_4oiid"]
+[ext_resource type="Texture2D" uid="uid://br5mm1wsgiwjm" path="res://'art'/defaultbg.png" id="2_y1bc3"]
 [ext_resource type="AudioStream" uid="uid://dvfunwt1mp08c" path="res://audio/break.mp3" id="3_55aa6"]
 [ext_resource type="PackedScene" uid="uid://cfx8uapxu85ej" path="res://objects/ball.tscn" id="4_iq17r"]
 [ext_resource type="PackedScene" uid="uid://c64vthk38uwv" path="res://objects/ballInGoal.tscn" id="6_jovhg"]
 
 [node name="Stage 1" type="Node2D"]
 script = ExtResource("1_ywlhw")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_y1bc3")
 
 [node name="goal" parent="." instance=ExtResource("2_4oiid")]
 position = Vector2(562, 368)

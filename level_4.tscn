@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://du6vldbmi5wg4"]
+[gd_scene load_steps=11 format=3 uid="uid://du6vldbmi5wg4"]
 
 [ext_resource type="Script" path="res://scripts/level_4.gd" id="1_su0wu"]
 [ext_resource type="PackedScene" uid="uid://bkdvtcxrxufkh" path="res://objects/wall.tscn" id="2_c68un"]
+[ext_resource type="Texture2D" uid="uid://br5mm1wsgiwjm" path="res://'art'/defaultbg.png" id="2_to83o"]
 [ext_resource type="PackedScene" uid="uid://we7yb3g0j3wu" path="res://objects/goal.tscn" id="2_unqdf"]
 [ext_resource type="PackedScene" uid="uid://5xtqymdpbp3o" path="res://objects/obsticle.tscn" id="3_icowd"]
 [ext_resource type="AudioStream" uid="uid://dvfunwt1mp08c" path="res://audio/break.mp3" id="4_38s2y"]
@@ -12,6 +13,11 @@
 
 [node name="Stage 4" type="Node2D"]
 script = ExtResource("1_su0wu")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_to83o")
 
 [node name="Wall" parent="." instance=ExtResource("2_c68un")]
 position = Vector2(495, 464)

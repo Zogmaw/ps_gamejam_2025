@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8eldkcbatmsd"]
+
+[ext_resource type="Script" path="res://scripts/glass.gd" id="1_7vgy0"]
+[ext_resource type="Texture2D" uid="uid://teximy3ub1pm" path="res://'art'/glass.png" id="2_sdag0"]
+
+[node name="glass" type="Node2D"]
+script = ExtResource("1_7vgy0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.243137)
+texture = ExtResource("2_sdag0")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(-80, -96, 72, -96, 80, 88, 64, 120, -96, 120, -120, 104, -120, -56)
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
