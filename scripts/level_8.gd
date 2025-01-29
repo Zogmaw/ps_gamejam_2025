@@ -42,6 +42,7 @@ func _on_obsticle_object_destroyed() -> void:
 	$break.play()
 
 func _on_ball_ball_destroyed() -> void:
+	$ballInGoal/Camera2D.queue_free()
 	$break.play()
 
 func _on_rope_rope_destroyed() -> void:

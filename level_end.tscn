@@ -1,0 +1,85 @@
+[gd_scene load_steps=13 format=3 uid="uid://cjgixksjapy8g"]
+
+[ext_resource type="Script" path="res://scripts/end.gd" id="1_cr186"]
+[ext_resource type="Texture2D" uid="uid://cbllxraucprkv" path="res://'art'/earth1.png" id="2_w2xi5"]
+[ext_resource type="Texture2D" uid="uid://cudiri7rppdkn" path="res://'art'/earth2.png" id="3_58ugt"]
+[ext_resource type="Texture2D" uid="uid://ddsuu0btdx2iw" path="res://'art'/earth3.png" id="4_b6en7"]
+[ext_resource type="Texture2D" uid="uid://c2ds76n5giff3" path="res://'art'/earth4.png" id="5_jinvc"]
+[ext_resource type="Texture2D" uid="uid://bopbdtqkmm05v" path="res://'art'/earth5.png" id="6_0co8d"]
+[ext_resource type="Texture2D" uid="uid://cxy84taojroup" path="res://'art'/earth6.png" id="7_2samb"]
+[ext_resource type="Texture2D" uid="uid://ba4gy4uld8fmt" path="res://'art'/earth7.png" id="8_lu5t3"]
+[ext_resource type="Texture2D" uid="uid://hcw4g6brfo7c" path="res://'art'/earth8.png" id="9_odgu4"]
+[ext_resource type="AudioStream" uid="uid://bp55qfacwi1av" path="res://audio/explosion.mp3" id="10_d0t7f"]
+[ext_resource type="Texture2D" uid="uid://bxc8ea8djy3jm" path="res://'art'/ballInGoalbgless.png" id="11_r3mcd"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ylt7i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_w2xi5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_w2xi5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_w2xi5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_58ugt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_b6en7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_jinvc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_0co8d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_2samb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_lu5t3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_odgu4")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="end" type="Node2D"]
+script = ExtResource("1_cr186")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(576, 324.35)
+sprite_frames = SubResource("SpriteFrames_ylt7i")
+frame_progress = 0.781766
+
+[node name="explosion" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_d0t7f")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = 488.0
+offset_top = 256.0
+offset_right = 661.0
+offset_bottom = 279.0
+text = "You blew up the world"
+
+[node name="Button" type="Button" parent="."]
+visible = false
+offset_left = 496.0
+offset_top = 336.0
+offset_right = 647.0
+offset_bottom = 494.0
+text = "Main
+Menu"
+icon = ExtResource("11_r3mcd")
+flat = true
+icon_alignment = 1
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

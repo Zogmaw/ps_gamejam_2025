@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://c64vthk38uwv"]
+[gd_scene load_steps=6 format=3 uid="uid://c64vthk38uwv"]
 
 [ext_resource type="Script" path="res://scripts/ball_in_goal.gd" id="1_80qeg"]
 [ext_resource type="Texture2D" uid="uid://bxc8ea8djy3jm" path="res://'art'/ballInGoalbgless.png" id="1_vq1l5"]
 [ext_resource type="AudioStream" uid="uid://dawo1fe8pefp8" path="res://audio/ButtonEnabled.mp3" id="3_lhc56"]
+[ext_resource type="AudioStream" uid="uid://dslaka8wl4624" path="res://audio/push.mp3" id="4_3uwri"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vu6xv"]
 radius = 22.7464
@@ -24,4 +25,8 @@ debug_color = Color(0.942816, 0.207681, 0.313411, 0.42)
 [node name="onVisible" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_lhc56")
 
+[node name="push" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_3uwri")
+
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="finished" from="push" to="." method="_on_push_finished"]

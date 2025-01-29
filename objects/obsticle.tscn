@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://5xtqymdpbp3o"]
 
-[ext_resource type="Texture2D" uid="uid://bi1d0c5gihdxs" path="res://icon.svg" id="1_h03lh"]
 [ext_resource type="Script" path="res://scripts/obsticle.gd" id="1_p8yiq"]
+[ext_resource type="Texture2D" uid="uid://cc6h18hfxjvmu" path="res://'art'/crate.png" id="2_if2rl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6m12t"]
 size = Vector2(66.4644, 66.4644)
@@ -10,7 +10,9 @@ size = Vector2(66.4644, 66.4644)
 script = ExtResource("1_p8yiq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_h03lh")
+position = Vector2(0.999996, -0.5)
+scale = Vector2(0.421405, 0.416393)
+texture = ExtResource("2_if2rl")
 
 [node name="Area2D" type="Area2D" parent="."]
 

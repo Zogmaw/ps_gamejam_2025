@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8lmphn62rcku"
-path="res://.godot/imported/bnf.png-15965244423802a7fa45fe1e810de1f5.ctex"
+uid="uid://ddsuu0btdx2iw"
+path="res://.godot/imported/earth3.png-3fe7835f90ee7c4064e96f6e86885e8a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://bnf.png"
-dest_files=["res://.godot/imported/bnf.png-15965244423802a7fa45fe1e810de1f5.ctex"]
+source_file="res://'art'/earth3.png"
+dest_files=["res://.godot/imported/earth3.png-3fe7835f90ee7c4064e96f6e86885e8a.ctex"]
 
 [params]
 

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dcka0k6fa74w7"]
+[gd_scene load_steps=4 format=3 uid="uid://dcka0k6fa74w7"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_jioek"]
 [ext_resource type="Texture2D" uid="uid://bxc8ea8djy3jm" path="res://'art'/ballInGoalbgless.png" id="2_alqp5"]
+[ext_resource type="Texture2D" uid="uid://br5mm1wsgiwjm" path="res://'art'/defaultbg.png" id="2_be3kq"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -11,6 +12,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_jioek")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("2_be3kq")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -33,13 +40,13 @@ layout_mode = 2
 
 [node name="Title" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Game Title"
+text = "Push the Button"
 horizontal_alignment = 1
 uppercase = true
 
 [node name="tag line" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Tag line"
+text = "A button pushing adventure"
 horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
