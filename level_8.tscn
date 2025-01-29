@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://dydhdrddapvey"]
+[gd_scene load_steps=13 format=3 uid="uid://dydhdrddapvey"]
 
 [ext_resource type="Script" path="res://scripts/level_8.gd" id="1_3deuf"]
-[ext_resource type="Texture2D" uid="uid://bgnois8b8ypr4" path="res://'art'/roadbg.png" id="3_sk4ja"]
+[ext_resource type="Texture2D" uid="uid://bp6b6gxhculb6" path="res://'art'/roadbg.png" id="3_sk4ja"]
 [ext_resource type="PackedScene" uid="uid://we7yb3g0j3wu" path="res://objects/goal.tscn" id="3_w1hoc"]
 [ext_resource type="AudioStream" uid="uid://dvfunwt1mp08c" path="res://audio/break.mp3" id="4_fdugu"]
+[ext_resource type="Texture2D" uid="uid://bobwlf3rui8fd" path="res://'art'/grass.png" id="4_x1jkm"]
 [ext_resource type="PackedScene" uid="uid://cfx8uapxu85ej" path="res://objects/ball.tscn" id="5_kvxva"]
 [ext_resource type="PackedScene" uid="uid://c64vthk38uwv" path="res://objects/ballInGoal.tscn" id="6_epk0g"]
 [ext_resource type="AudioStream" uid="uid://b32vxgkjwcky6" path="res://audio/snip.mp3" id="7_0plyx"]
@@ -26,6 +27,11 @@ spike_scene = ExtResource("9_8nscl")
 offset_right = 1152.0
 offset_bottom = 1152.0
 texture = ExtResource("3_sk4ja")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+offset_top = -648.0
+offset_right = 1152.0
+texture = ExtResource("4_x1jkm")
 
 [node name="Area2D" type="Area2D" parent="."]
 gravity_space_override = 3

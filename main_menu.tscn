@@ -61,13 +61,13 @@ icon = ExtResource("2_alqp5")
 flat = true
 icon_alignment = 1
 
-[node name="Exit" type="Button" parent="MarginContainer/HBoxContainer"]
+[node name="Credits" type="Button" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
-text = "Quit"
+text = "Credits"
 icon = ExtResource("2_alqp5")
 flat = true
 icon_alignment = 1
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/howToPlay" to="." method="_on_how_to_play_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Credits" to="." method="_on_exit_pressed"]

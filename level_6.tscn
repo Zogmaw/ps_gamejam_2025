@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cf6vqg8vkhnjh"]
+[gd_scene load_steps=14 format=3 uid="uid://cf6vqg8vkhnjh"]
 
 [ext_resource type="Script" path="res://scripts/level_6.gd" id="1_jv3g4"]
 [ext_resource type="Texture2D" uid="uid://br5mm1wsgiwjm" path="res://'art'/defaultbg.png" id="2_5ihjq"]
@@ -13,6 +13,11 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hfycv"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ql4x"]
+size = Vector2(29, 35)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_hg5mx"]
+
 [node name="Stage 6" type="Node2D"]
 script = ExtResource("1_jv3g4")
 
@@ -21,167 +26,192 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("2_5ihjq")
 
-[node name="goal" parent="." instance=ExtResource("3_gybt2")]
-position = Vector2(96, 550)
+[node name="parent" type="Node2D" parent="."]
+visible = false
 
-[node name="break" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("5_xe61h")
-
-[node name="Ball" parent="." instance=ExtResource("6_ap0pd")]
+[node name="Ball" parent="parent" instance=ExtResource("6_ap0pd")]
 position = Vector2(97, 262)
 
-[node name="maze" type="Node2D" parent="."]
+[node name="maze" type="Node2D" parent="parent"]
 position = Vector2(1268, 190)
 
-[node name="Obsticle" parent="maze" instance=ExtResource("4_1fq3e")]
+[node name="Obsticle" parent="parent/maze" instance=ExtResource("4_1fq3e")]
 position = Vector2(-655, -177)
 scale = Vector2(11.28, 0.16)
 
-[node name="Obsticle2" parent="maze" instance=ExtResource("4_1fq3e")]
+[node name="Obsticle2" parent="parent/maze" instance=ExtResource("4_1fq3e")]
 position = Vector2(-641, 444)
 scale = Vector2(11.28, 0.16)
 
-[node name="Obsticle3" parent="maze" instance=ExtResource("4_1fq3e")]
+[node name="Obsticle3" parent="parent/maze" instance=ExtResource("4_1fq3e")]
 position = Vector2(-126, 136)
 rotation = 1.5708
 scale = Vector2(5.28, 0.16)
 
-[node name="Obsticle4" parent="maze" instance=ExtResource("4_1fq3e")]
+[node name="Obsticle4" parent="parent/maze" instance=ExtResource("4_1fq3e")]
 position = Vector2(-1256, 140)
 rotation = 1.5708
 scale = Vector2(5.28, 0.16)
 
-[node name="Obsticle5" parent="maze" instance=ExtResource("4_1fq3e")]
+[node name="Obsticle5" parent="parent/maze" instance=ExtResource("4_1fq3e")]
 position = Vector2(-1072, 10)
 rotation = 1.5708
 scale = Vector2(4, 0.16)
 
-[node name="Obsticle7" parent="maze" instance=ExtResource("4_1fq3e")]
+[node name="Obsticle7" parent="parent/maze" instance=ExtResource("4_1fq3e")]
 position = Vector2(-629, -119)
 scale = Vector2(5.92, 0.16)
 
-[node name="Obsticle11" parent="maze" instance=ExtResource("4_1fq3e")]
+[node name="Obsticle11" parent="parent/maze" instance=ExtResource("4_1fq3e")]
 position = Vector2(-1003, 39)
 rotation = 1.5708
 scale = Vector2(2.64, 0.16)
 
-[node name="Obsticle6" parent="maze" instance=ExtResource("4_1fq3e")]
+[node name="Obsticle6" parent="parent/maze" instance=ExtResource("4_1fq3e")]
 position = Vector2(-1072, 364)
 rotation = 1.5708
 scale = Vector2(1.08, 0.16)
 
-[node name="Obsticle8" parent="maze" instance=ExtResource("4_1fq3e")]
+[node name="Obsticle8" parent="parent/maze" instance=ExtResource("4_1fq3e")]
 position = Vector2(-190, -103)
 rotation = 1.5708
 scale = Vector2(1.08, 0.16)
 
-[node name="Obsticle27" parent="maze" instance=ExtResource("4_1fq3e")]
+[node name="Obsticle27" parent="parent/maze" instance=ExtResource("4_1fq3e")]
 position = Vector2(-528, 225)
 rotation = 1.5708
 scale = Vector2(1.08, 0.16)
 
-[node name="Obsticle33" parent="maze" instance=ExtResource("4_1fq3e")]
+[node name="Obsticle33" parent="parent/maze" instance=ExtResource("4_1fq3e")]
 position = Vector2(-692, 310)
 rotation = 1.5708
 scale = Vector2(1.08, 0.16)
 
-[node name="Obsticle19" parent="maze" instance=ExtResource("4_1fq3e")]
+[node name="Obsticle19" parent="parent/maze" instance=ExtResource("4_1fq3e")]
 position = Vector2(-716, -47)
 rotation = 1.5708
 scale = Vector2(1.08, 0.16)
 
-[node name="Obsticle22" parent="maze" instance=ExtResource("4_1fq3e")]
+[node name="Obsticle22" parent="parent/maze" instance=ExtResource("4_1fq3e")]
 position = Vector2(-503, 20)
 rotation = 1.5708
 scale = Vector2(1.08, 0.16)
 
-[node name="Obsticle24" parent="maze" instance=ExtResource("4_1fq3e")]
+[node name="Obsticle24" parent="parent/maze" instance=ExtResource("4_1fq3e")]
 position = Vector2(-345, 162)
 rotation = 1.5708
 scale = Vector2(1.08, 0.16)
 
-[node name="Obsticle32" parent="maze" instance=ExtResource("4_1fq3e")]
+[node name="Obsticle32" parent="parent/maze" instance=ExtResource("4_1fq3e")]
 position = Vector2(-797, 257)
 rotation = 1.5708
 scale = Vector2(1.08, 0.16)
 
-[node name="Obsticle13" parent="maze" instance=ExtResource("4_1fq3e")]
+[node name="Obsticle13" parent="parent/maze" instance=ExtResource("4_1fq3e")]
 position = Vector2(-932, 185)
 rotation = 1.5708
 scale = Vector2(1.08, 0.16)
 
-[node name="Obsticle29" parent="maze" instance=ExtResource("4_1fq3e")]
+[node name="Obsticle29" parent="parent/maze" instance=ExtResource("4_1fq3e")]
 position = Vector2(-1000, 324)
 rotation = 1.5708
 scale = Vector2(1.08, 0.16)
 
-[node name="Obsticle15" parent="maze" instance=ExtResource("4_1fq3e")]
+[node name="Obsticle15" parent="parent/maze" instance=ExtResource("4_1fq3e")]
 position = Vector2(-812, 53)
 rotation = 1.5708
 scale = Vector2(1.08, 0.16)
 
-[node name="Obsticle10" parent="maze" instance=ExtResource("4_1fq3e")]
+[node name="Obsticle10" parent="parent/maze" instance=ExtResource("4_1fq3e")]
 position = Vector2(-264, -53)
 rotation = 1.5708
 scale = Vector2(1.08, 0.16)
 
-[node name="Obsticle23" parent="maze" instance=ExtResource("4_1fq3e")]
+[node name="Obsticle23" parent="parent/maze" instance=ExtResource("4_1fq3e")]
 position = Vector2(-195, 164)
 rotation = 1.5708
 scale = Vector2(1.08, 0.16)
 
-[node name="Obsticle21" parent="maze" instance=ExtResource("4_1fq3e")]
+[node name="Obsticle21" parent="parent/maze" instance=ExtResource("4_1fq3e")]
 position = Vector2(-264, 79)
 rotation = 1.5708
 scale = Vector2(1.08, 0.16)
 
-[node name="Obsticle9" parent="maze" instance=ExtResource("4_1fq3e")]
+[node name="Obsticle9" parent="parent/maze" instance=ExtResource("4_1fq3e")]
 position = Vector2(-195, 17)
 scale = Vector2(1.08, 0.16)
 
-[node name="Obsticle25" parent="maze" instance=ExtResource("4_1fq3e")]
+[node name="Obsticle25" parent="parent/maze" instance=ExtResource("4_1fq3e")]
 position = Vector2(-271, 222)
 scale = Vector2(1.08, 0.16)
 
-[node name="Obsticle31" parent="maze" instance=ExtResource("4_1fq3e")]
+[node name="Obsticle31" parent="parent/maze" instance=ExtResource("4_1fq3e")]
 position = Vector2(-367, 379)
 scale = Vector2(2.64, 0.16)
 
-[node name="Obsticle12" parent="maze" instance=ExtResource("4_1fq3e")]
+[node name="Obsticle12" parent="parent/maze" instance=ExtResource("4_1fq3e")]
 position = Vector2(-991, 250)
 scale = Vector2(1.08, 0.16)
 
-[node name="Obsticle17" parent="maze" instance=ExtResource("4_1fq3e")]
+[node name="Obsticle17" parent="parent/maze" instance=ExtResource("4_1fq3e")]
 position = Vector2(-871, 128)
 scale = Vector2(1.08, 0.16)
 
-[node name="Obsticle28" parent="maze" instance=ExtResource("4_1fq3e")]
+[node name="Obsticle28" parent="parent/maze" instance=ExtResource("4_1fq3e")]
 position = Vector2(-654, 199)
 scale = Vector2(2.08, 0.16)
 
-[node name="Obsticle20" parent="maze" instance=ExtResource("4_1fq3e")]
+[node name="Obsticle20" parent="parent/maze" instance=ExtResource("4_1fq3e")]
 position = Vector2(-567, 81)
 scale = Vector2(3.68, 0.16)
 
-[node name="Obsticle26" parent="maze" instance=ExtResource("4_1fq3e")]
+[node name="Obsticle26" parent="parent/maze" instance=ExtResource("4_1fq3e")]
 position = Vector2(-364, 295)
 scale = Vector2(3.68, 0.16)
 
-[node name="Obsticle30" parent="maze" instance=ExtResource("4_1fq3e")]
+[node name="Obsticle30" parent="parent/maze" instance=ExtResource("4_1fq3e")]
 position = Vector2(-765, 380)
 scale = Vector2(3.68, 0.16)
 
-[node name="Obsticle14" parent="maze" instance=ExtResource("4_1fq3e")]
+[node name="Obsticle14" parent="parent/maze" instance=ExtResource("4_1fq3e")]
 position = Vector2(-936, 66)
 scale = Vector2(1.08, 0.16)
 
-[node name="Obsticle16" parent="maze" instance=ExtResource("4_1fq3e")]
+[node name="Obsticle16" parent="parent/maze" instance=ExtResource("4_1fq3e")]
 position = Vector2(-872, -9)
 scale = Vector2(1.08, 0.16)
 
-[node name="Obsticle18" parent="maze" instance=ExtResource("4_1fq3e")]
+[node name="Obsticle18" parent="parent/maze" instance=ExtResource("4_1fq3e")]
 position = Vector2(-872, -63)
 scale = Vector2(1.08, 0.16)
+
+[node name="spike" parent="parent" instance=ExtResource("9_x6mub")]
+position = Vector2(86, 69)
+
+[node name="goal" parent="parent" instance=ExtResource("3_gybt2")]
+position = Vector2(96, 550)
+
+[node name="Rope" parent="parent" instance=ExtResource("9_fi8jh")]
+position = Vector2(12, 467)
+
+[node name="pin" type="StaticBody2D" parent="parent/Rope"]
+position = Vector2(187, -2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="parent/Rope/pin"]
+shape = SubResource("CircleShape2D_hfycv")
+
+[node name="Rope2" parent="parent" instance=ExtResource("9_fi8jh")]
+position = Vector2(924, 272)
+scale = Vector2(0.445, 1)
+
+[node name="pin" type="StaticBody2D" parent="parent/Rope2"]
+position = Vector2(187, -2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="parent/Rope2/pin"]
+shape = SubResource("CircleShape2D_hfycv")
+
+[node name="break" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_xe61h")
 
 [node name="ballInGoal" parent="." instance=ExtResource("7_xubfx")]
 visible = false
@@ -190,78 +220,77 @@ position = Vector2(96, 550)
 [node name="snip" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_rndem")
 
-[node name="spike" parent="." instance=ExtResource("9_x6mub")]
-position = Vector2(86, 69)
-
 [node name="PinJoint2D" type="PinJoint2D" parent="."]
 position = Vector2(85, 13)
-node_a = NodePath("../spike")
-node_b = NodePath("../maze/Obsticle")
+node_a = NodePath("../parent/spike")
+node_b = NodePath("../parent/maze/Obsticle")
 
 [node name="PinJoint2D2" type="PinJoint2D" parent="."]
 position = Vector2(199, 465)
-node_a = NodePath("../Rope/pin")
-node_b = NodePath("../Rope")
+node_a = NodePath("../parent/Rope/pin")
+node_b = NodePath("../parent/Rope")
 
 [node name="PinJoint2D3" type="PinJoint2D" parent="."]
 position = Vector2(1006, 269)
-node_a = NodePath("../Rope2/pin")
-node_b = NodePath("../Rope2")
+node_a = NodePath("../parent/Rope2/pin")
+node_b = NodePath("../parent/Rope2")
 
-[node name="Rope" parent="." instance=ExtResource("9_fi8jh")]
-position = Vector2(12, 467)
+[node name="start" type="Area2D" parent="."]
 
-[node name="pin" type="StaticBody2D" parent="Rope"]
-position = Vector2(187, -2)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="start"]
+position = Vector2(1108.5, 50.5)
+shape = SubResource("RectangleShape2D_1ql4x")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Rope/pin"]
-shape = SubResource("CircleShape2D_hfycv")
+[node name="Sprite2D" type="Sprite2D" parent="start"]
+position = Vector2(1108, 50)
+scale = Vector2(27.5, 33.5)
+texture = SubResource("PlaceholderTexture2D_hg5mx")
 
-[node name="Rope2" parent="." instance=ExtResource("9_fi8jh")]
-position = Vector2(924, 272)
-scale = Vector2(0.445, 1)
+[node name="Label" type="Label" parent="start"]
+offset_left = 1067.0
+offset_top = 24.0
+offset_right = 1149.0
+offset_bottom = 73.0
+text = "Move here
+to start"
+horizontal_alignment = 1
 
-[node name="pin" type="StaticBody2D" parent="Rope2"]
-position = Vector2(187, -2)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Rope2/pin"]
-shape = SubResource("CircleShape2D_hfycv")
-
-[connection signal="ballInGoal" from="goal" to="." method="_on_goal_ball_in_goal"]
-[connection signal="ball_destroyed" from="Ball" to="." method="_on_ball_ball_destroyed"]
-[connection signal="object_destroyed" from="maze/Obsticle" to="." method="_on_obsticle_object_destroyed"]
-[connection signal="object_destroyed" from="maze/Obsticle2" to="." method="_on_obsticle_object_destroyed"]
-[connection signal="object_destroyed" from="maze/Obsticle3" to="." method="_on_obsticle_object_destroyed"]
-[connection signal="object_destroyed" from="maze/Obsticle4" to="." method="_on_obsticle_object_destroyed"]
-[connection signal="object_destroyed" from="maze/Obsticle5" to="." method="_on_obsticle_object_destroyed"]
-[connection signal="object_destroyed" from="maze/Obsticle7" to="." method="_on_obsticle_object_destroyed"]
-[connection signal="object_destroyed" from="maze/Obsticle11" to="." method="_on_obsticle_object_destroyed"]
-[connection signal="object_destroyed" from="maze/Obsticle6" to="." method="_on_obsticle_object_destroyed"]
-[connection signal="object_destroyed" from="maze/Obsticle8" to="." method="_on_obsticle_object_destroyed"]
-[connection signal="object_destroyed" from="maze/Obsticle27" to="." method="_on_obsticle_object_destroyed"]
-[connection signal="object_destroyed" from="maze/Obsticle33" to="." method="_on_obsticle_object_destroyed"]
-[connection signal="object_destroyed" from="maze/Obsticle19" to="." method="_on_obsticle_object_destroyed"]
-[connection signal="object_destroyed" from="maze/Obsticle22" to="." method="_on_obsticle_object_destroyed"]
-[connection signal="object_destroyed" from="maze/Obsticle24" to="." method="_on_obsticle_object_destroyed"]
-[connection signal="object_destroyed" from="maze/Obsticle32" to="." method="_on_obsticle_object_destroyed"]
-[connection signal="object_destroyed" from="maze/Obsticle13" to="." method="_on_obsticle_object_destroyed"]
-[connection signal="object_destroyed" from="maze/Obsticle29" to="." method="_on_obsticle_object_destroyed"]
-[connection signal="object_destroyed" from="maze/Obsticle15" to="." method="_on_obsticle_object_destroyed"]
-[connection signal="object_destroyed" from="maze/Obsticle10" to="." method="_on_obsticle_object_destroyed"]
-[connection signal="object_destroyed" from="maze/Obsticle23" to="." method="_on_obsticle_object_destroyed"]
-[connection signal="object_destroyed" from="maze/Obsticle21" to="." method="_on_obsticle_object_destroyed"]
-[connection signal="object_destroyed" from="maze/Obsticle9" to="." method="_on_obsticle_object_destroyed"]
-[connection signal="object_destroyed" from="maze/Obsticle25" to="." method="_on_obsticle_object_destroyed"]
-[connection signal="object_destroyed" from="maze/Obsticle31" to="." method="_on_obsticle_object_destroyed"]
-[connection signal="object_destroyed" from="maze/Obsticle12" to="." method="_on_obsticle_object_destroyed"]
-[connection signal="object_destroyed" from="maze/Obsticle17" to="." method="_on_obsticle_object_destroyed"]
-[connection signal="object_destroyed" from="maze/Obsticle28" to="." method="_on_obsticle_object_destroyed"]
-[connection signal="object_destroyed" from="maze/Obsticle20" to="." method="_on_obsticle_object_destroyed"]
-[connection signal="object_destroyed" from="maze/Obsticle26" to="." method="_on_obsticle_object_destroyed"]
-[connection signal="object_destroyed" from="maze/Obsticle30" to="." method="_on_obsticle_object_destroyed"]
-[connection signal="object_destroyed" from="maze/Obsticle14" to="." method="_on_obsticle_object_destroyed"]
-[connection signal="object_destroyed" from="maze/Obsticle16" to="." method="_on_obsticle_object_destroyed"]
-[connection signal="object_destroyed" from="maze/Obsticle18" to="." method="_on_obsticle_object_destroyed"]
+[connection signal="ball_destroyed" from="parent/Ball" to="." method="_on_ball_ball_destroyed"]
+[connection signal="object_destroyed" from="parent/maze/Obsticle" to="." method="_on_obsticle_object_destroyed"]
+[connection signal="object_destroyed" from="parent/maze/Obsticle2" to="." method="_on_obsticle_object_destroyed"]
+[connection signal="object_destroyed" from="parent/maze/Obsticle3" to="." method="_on_obsticle_object_destroyed"]
+[connection signal="object_destroyed" from="parent/maze/Obsticle4" to="." method="_on_obsticle_object_destroyed"]
+[connection signal="object_destroyed" from="parent/maze/Obsticle5" to="." method="_on_obsticle_object_destroyed"]
+[connection signal="object_destroyed" from="parent/maze/Obsticle7" to="." method="_on_obsticle_object_destroyed"]
+[connection signal="object_destroyed" from="parent/maze/Obsticle11" to="." method="_on_obsticle_object_destroyed"]
+[connection signal="object_destroyed" from="parent/maze/Obsticle6" to="." method="_on_obsticle_object_destroyed"]
+[connection signal="object_destroyed" from="parent/maze/Obsticle8" to="." method="_on_obsticle_object_destroyed"]
+[connection signal="object_destroyed" from="parent/maze/Obsticle27" to="." method="_on_obsticle_object_destroyed"]
+[connection signal="object_destroyed" from="parent/maze/Obsticle33" to="." method="_on_obsticle_object_destroyed"]
+[connection signal="object_destroyed" from="parent/maze/Obsticle19" to="." method="_on_obsticle_object_destroyed"]
+[connection signal="object_destroyed" from="parent/maze/Obsticle22" to="." method="_on_obsticle_object_destroyed"]
+[connection signal="object_destroyed" from="parent/maze/Obsticle24" to="." method="_on_obsticle_object_destroyed"]
+[connection signal="object_destroyed" from="parent/maze/Obsticle32" to="." method="_on_obsticle_object_destroyed"]
+[connection signal="object_destroyed" from="parent/maze/Obsticle13" to="." method="_on_obsticle_object_destroyed"]
+[connection signal="object_destroyed" from="parent/maze/Obsticle29" to="." method="_on_obsticle_object_destroyed"]
+[connection signal="object_destroyed" from="parent/maze/Obsticle15" to="." method="_on_obsticle_object_destroyed"]
+[connection signal="object_destroyed" from="parent/maze/Obsticle10" to="." method="_on_obsticle_object_destroyed"]
+[connection signal="object_destroyed" from="parent/maze/Obsticle23" to="." method="_on_obsticle_object_destroyed"]
+[connection signal="object_destroyed" from="parent/maze/Obsticle21" to="." method="_on_obsticle_object_destroyed"]
+[connection signal="object_destroyed" from="parent/maze/Obsticle9" to="." method="_on_obsticle_object_destroyed"]
+[connection signal="object_destroyed" from="parent/maze/Obsticle25" to="." method="_on_obsticle_object_destroyed"]
+[connection signal="object_destroyed" from="parent/maze/Obsticle31" to="." method="_on_obsticle_object_destroyed"]
+[connection signal="object_destroyed" from="parent/maze/Obsticle12" to="." method="_on_obsticle_object_destroyed"]
+[connection signal="object_destroyed" from="parent/maze/Obsticle17" to="." method="_on_obsticle_object_destroyed"]
+[connection signal="object_destroyed" from="parent/maze/Obsticle28" to="." method="_on_obsticle_object_destroyed"]
+[connection signal="object_destroyed" from="parent/maze/Obsticle20" to="." method="_on_obsticle_object_destroyed"]
+[connection signal="object_destroyed" from="parent/maze/Obsticle26" to="." method="_on_obsticle_object_destroyed"]
+[connection signal="object_destroyed" from="parent/maze/Obsticle30" to="." method="_on_obsticle_object_destroyed"]
+[connection signal="object_destroyed" from="parent/maze/Obsticle14" to="." method="_on_obsticle_object_destroyed"]
+[connection signal="object_destroyed" from="parent/maze/Obsticle16" to="." method="_on_obsticle_object_destroyed"]
+[connection signal="object_destroyed" from="parent/maze/Obsticle18" to="." method="_on_obsticle_object_destroyed"]
+[connection signal="ballInGoal" from="parent/goal" to="." method="_on_goal_ball_in_goal"]
+[connection signal="rope_destroyed" from="parent/Rope" to="." method="_on_rope_rope_destroyed"]
+[connection signal="rope_destroyed" from="parent/Rope2" to="." method="_on_rope_rope_destroyed"]
 [connection signal="goNext" from="ballInGoal" to="." method="_on_ball_in_goal_go_next"]
-[connection signal="rope_destroyed" from="Rope" to="." method="_on_rope_rope_destroyed"]
-[connection signal="rope_destroyed" from="Rope2" to="." method="_on_rope_rope_destroyed"]
+[connection signal="mouse_entered" from="start" to="." method="_on_start_mouse_entered"]

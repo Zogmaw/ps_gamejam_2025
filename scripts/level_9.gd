@@ -8,10 +8,7 @@ var totalBallons: int = 4
 var path
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	#get_viewport().warp_mouse(Vector2(586,70))
 	path = get_node("Path2D")
-	#$Ball.contact_monitor = true
-	#$Ball.max_contacts_reported = 10
 	$Path2D/PathFollow2D/spike.contact_monitor = true
 	$Path2D/PathFollow2D/spike.max_contacts_reported = 10
 
@@ -36,6 +33,7 @@ func _on_rope_rope_destroyed() -> void:
 func _on_goal_ball_in_goal() -> void:
 	$goal.queue_free()
 	$ballInGoal.visible = true
+	$ballInGoal/onVisible.play()
 	butt.queue_free()
 
 func _on_ball_in_goal_go_next() -> void:

@@ -4,7 +4,6 @@ var remainingFruit: int = 12
 @export var fruit: PackedScene
 
 func _ready() -> void:
-	get_viewport().warp_mouse(Vector2(586,70))
 	$Label.text = str("Break ", remainingFruit, " more watermelon")
 	$melonTimer.start()
 
@@ -25,6 +24,7 @@ func _on_goal_ball_in_goal() -> void:
 	$Ball.queue_free()
 	$goal.queue_free()
 	$ballInGoal.visible = true
+	$ballInGoal/onVisible.play()
 
 func _on_ball_in_goal_go_next() -> void:
 	get_tree().change_scene_to_file("res://level_8.tscn")

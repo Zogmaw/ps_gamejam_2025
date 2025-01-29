@@ -6,7 +6,6 @@ var startPOS: Vector2
 @export var spike_scene: PackedScene
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	get_viewport().warp_mouse(Vector2(586,70))
 	$Ball.linear_velocity = Vector2(0,0)
 	$Ball.contact_monitor = true
 	$Ball.max_contacts_reported = 10
@@ -52,6 +51,7 @@ func _on_goal_ball_in_goal() -> void:
 	$Ball.queue_free()
 	$goal.queue_free()
 	$ballInGoal.visible = true
+	$ballInGoal/onVisible.play()
 
 func _on_ball_in_goal_go_next() -> void:
 	get_tree().change_scene_to_file("res://level_9.tscn")
