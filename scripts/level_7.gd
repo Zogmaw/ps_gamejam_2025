@@ -11,6 +11,11 @@ func _input(event: InputEvent) -> void:
 	#Reload the level if 'R' is pressed
 	if event.is_action_pressed("reload"):
 		get_tree().reload_current_scene()
+	elif event.is_action_pressed("music"):
+		if (Music.playing):
+			Music.stop()
+		else:
+			Music.play()
 
 
 

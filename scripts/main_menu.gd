@@ -21,3 +21,10 @@ func _on_how_to_play_pressed() -> void:
 
 func _on_exit_pressed() -> void:
 	get_tree().change_scene_to_file("res://credits.tscn")
+
+
+func _on_toggle_music_pressed() -> void:
+	if (Music.playing):
+		Music.stop()
+	else:
+		Music.play()

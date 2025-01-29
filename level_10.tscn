@@ -30,5 +30,9 @@ text = "DO NOT PRESS"
 [node name="shatter" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_7phwj")
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+
 [connection signal="goNext" from="nukeButton" to="." method="_on_nuke_button_go_next"]
 [connection signal="glass_destroyed" from="glass" to="." method="_on_glass_glass_destroyed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

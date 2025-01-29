@@ -25,6 +25,11 @@ func _input(event: InputEvent) -> void:
 			move = true
 			if(get_node_or_null("Ball")):
 				startPOS = $Ball.global_position
+	elif event.is_action_pressed("music"):
+		if (Music.playing):
+			Music.stop()
+		else:
+			Music.play()
 		
 
 func _physics_process(delta: float) -> void:

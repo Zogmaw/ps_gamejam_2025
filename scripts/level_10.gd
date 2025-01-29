@@ -8,6 +8,11 @@ func _input(event: InputEvent) -> void:
 	#Reload the level if 'R' is pressed
 	if event.is_action_pressed("reload"):
 		get_tree().reload_current_scene()
+	elif event.is_action_pressed("music"):
+		if (Music.playing):
+			Music.stop()
+		else:
+			Music.play()
 
 
 func _on_nuke_button_go_next() -> void:
@@ -15,4 +20,10 @@ func _on_nuke_button_go_next() -> void:
 
 
 func _on_glass_glass_destroyed() -> void:
+	Music.stop()
 	$shatter.play()
+	$Timer.start()
+
+func _on_timer_timeout() -> void:
+	Music.play()
+	$Timer.stop()

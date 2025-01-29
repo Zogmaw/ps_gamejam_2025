@@ -75,6 +75,15 @@ icon = ExtResource("2_alqp5")
 flat = true
 icon_alignment = 1
 
+[node name="Toggle Music" type="Button" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Toggle
+Music"
+icon = ExtResource("2_alqp5")
+flat = true
+icon_alignment = 1
+
 [connection signal="pressed" from="MarginContainer/HBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/howToPlay" to="." method="_on_how_to_play_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/Credits" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Toggle Music" to="." method="_on_toggle_music_pressed"]

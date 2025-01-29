@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dmv6ibh6lygdy"]
+[gd_scene load_steps=5 format=3 uid="uid://dmv6ibh6lygdy"]
 
 [ext_resource type="Script" path="res://scripts/ball_in_goal.gd" id="1_ai7rm"]
 [ext_resource type="Texture2D" uid="uid://diqvcgmc5ox73" path="res://'art'/nuke.png" id="2_jiomo"]
+[ext_resource type="AudioStream" uid="uid://dslaka8wl4624" path="res://audio/push.mp3" id="3_kjhq8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vu6xv"]
 radius = 22.7464
@@ -20,4 +21,8 @@ scale = Vector2(1.895, 1.895)
 shape = SubResource("CircleShape2D_vu6xv")
 debug_color = Color(0.942816, 0.207681, 0.313411, 0.42)
 
+[node name="push" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_kjhq8")
+
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="finished" from="push" to="." method="_on_push_finished"]
