@@ -1,8 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://bsr1bw5y1040m"]
+[gd_scene load_steps=3 format=3 uid="uid://bsr1bw5y1040m"]
 
 [ext_resource type="AudioStream" uid="uid://c80l64w1p6dmm" path="res://audio/music.mp3" id="1_cd2cn"]
+[ext_resource type="Script" path="res://scripts/music.gd" id="2_m6rcl"]
 
 [node name="music" type="AudioStreamPlayer2D"]
 stream = ExtResource("1_cd2cn")
 autoplay = true
 parameters/looping = true
+script = ExtResource("2_m6rcl")
+
+[connection signal="finished" from="." to="." method="_on_finished"]
